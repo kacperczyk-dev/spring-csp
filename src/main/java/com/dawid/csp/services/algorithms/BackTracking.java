@@ -19,9 +19,10 @@ public class BackTracking implements IAlgorithm {
 
     @Override
     public int[][] calculate() {
-        int[][] start = new int[App.N][App.N];
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 8; j++) {
+        int N = App.N;
+        int[][] start = new int[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
                 start[i][j] = 0;
             }
         }

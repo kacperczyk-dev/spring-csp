@@ -50,7 +50,4 @@ public class MyTreeNode<T>{
         return parent;
     }
 
-    public void removeChild(MyTreeNode child) {
-        this.children.remove(this.children.indexOf(child));
-    }
 }

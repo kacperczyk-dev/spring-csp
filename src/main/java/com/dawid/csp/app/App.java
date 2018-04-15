@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class App {
 
     private IAlgorithm alg;
-    public final static int N = 8;
+    public final static int N = 15;
 
     public App(IAlgorithm alg) {
         this.alg = alg;
@@ -17,9 +17,9 @@ public class App {
 
         int[][] solved = alg.calculate();
 
-        if(solved != null){
-            for (int i = 0; i < 8; i++) {
-                for(int j = 0; j < 8; j++) {
+        if(solved != null) {
+            for (int i = 0; i < N; i++) {
+                for(int j = 0; j < N; j++) {
                     System.out.print(solved[i][j] + "    ");
                 }
                 System.out.print("\n");
