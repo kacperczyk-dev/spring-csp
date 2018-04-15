@@ -1,6 +1,6 @@
 package com.dawid.csp.services.algorithms;
 
-import com.dawid.csp.services.problems.IProblem;
+import com.dawid.csp.services.csp.IProblem;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
