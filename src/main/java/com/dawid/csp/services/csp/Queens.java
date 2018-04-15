@@ -12,12 +12,14 @@ import java.util.List;
 public class Queens implements IProblem {
 
     private final static int N = 8;
+    public static int counter = 0;
 
     public Queens() { }
 
     @Override
     public int[][] placeNext(MyTreeNode current, int next) {
 
+        counter++;
         int[][] data = (int[][]) current.getData();
 
         if(current.getChildren().size() == 0 ) {
@@ -38,6 +40,7 @@ public class Queens implements IProblem {
                 MyTreeNode child = (MyTreeNode) current.getChildren().get(0);
                 return placeNext(child, next);
             } else {
+                System.out.println("Number of recurrent calls made: " + counter);
                 return (int[][])((MyTreeNode) current.getChildren().get(0)).getData();
             }
         } else {
