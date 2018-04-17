@@ -1,11 +1,13 @@
 package com.dawid.csp.services.algorithms;
 
+import com.dawid.csp.app.App;
 import com.dawid.csp.services.csp.IProblem;
+import com.dawid.csp.services.utils.MyTreeNode;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 @Service
-@Profile("fc")
+@Profile("forwardChecking")
 public class ForwardChecking implements IAlgorithm {
 
     private IProblem problem;
@@ -16,6 +18,16 @@ public class ForwardChecking implements IAlgorithm {
 
     @Override
     public int[][] calculate() {
-        return new int[0][0];
+
+        int N = App.N;
+        int[][] start = new int[N][N];
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++) {
+                start[i][j] = 0;
+            }
+        }
+        MyTreeNode root = new MyTreeNode(start);
+
+        return problem.placeNext(root, 0, 0);
     }
 }

@@ -5,23 +5,22 @@ import com.dawid.csp.services.utils.MyTreeNode;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-
 @SuppressWarnings("Duplicates")
 @Service
-@Profile("bqueens")
-public class Queens implements IProblem {
+@Profile("fqueens")
+public class forwardQueens implements IProblem {
 
     final static int N = App.N;
     static int counter = 0;
-
-    public Queens() { }
 
     @Override
     public int[][] placeNext(MyTreeNode current, int next) {
 
         counter++;
         int[][] data = (int[][]) current.getData();
-
+        if(!forsee(data, next)) {
+            return placeNext(current.getParent(), next-1);
+        }
         if(current.getChildren().size() == 0 ) {
             for (int j = 0; j < N; j++) {
                 int[][] copy_of_current = cloneArray(data);
@@ -46,14 +45,23 @@ public class Queens implements IProblem {
         } else {
             return placeNext(current.getParent(), next-1);
         }
+    }
 
+    private boolean forsee(int[][] data, int next) {
+        for(int i = next; i < N; i++) {
+            int options = 0;
+            for(int j = 0; j < N; j++) {
+                options += check(data, i, j) ? 1 : 0;
+            }
+            if(options == 0) return false;
+        }
+        return true;
     }
 
     @Override
     public int[][] placeNext(MyTreeNode current, int next, int v) {
-        return placeNext(current, 0);
+        return placeNext(current, next);
     }
-
 
     private boolean check(int[][] data, int x, int y) {
         for(int i = 0; i < N; i++) {
@@ -73,5 +81,4 @@ public class Queens implements IProblem {
         }
         return target;
     }
-
 }

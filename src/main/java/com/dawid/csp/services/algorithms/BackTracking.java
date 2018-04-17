@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-@Profile("bt")
+@Profile("backtracking")
 public class BackTracking implements IAlgorithm {
 
     private IProblem problem;
@@ -28,6 +28,6 @@ public class BackTracking implements IAlgorithm {
         }
         MyTreeNode root = new MyTreeNode(start);
 
-        return problem.placeNext(root, 0);
+        return problem.placeNext(root, 0, 0);
     }
 }
