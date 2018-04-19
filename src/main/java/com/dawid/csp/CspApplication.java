@@ -18,7 +18,7 @@ public class CspApplication {
 		 stopWatch.start();
 		 app.solve();
 		 stopWatch.stop();
-		 System.out.println("Timetaken: " + stopWatch.getTotalTimeMillis());
+		 System.out.println("Timetaken: " + stopWatch.getTotalTimeMillis() + "ms");
 	}
 
 }
