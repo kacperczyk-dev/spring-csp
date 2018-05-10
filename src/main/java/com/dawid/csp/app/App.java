@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class App {
 
     private IAlgorithm alg;
-    public final static int N = 9;
+    public final static int N = 8;
 
     public App(IAlgorithm alg) {
         this.alg = alg;
